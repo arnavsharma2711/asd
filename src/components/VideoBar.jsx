@@ -1,5 +1,4 @@
 import Video from "./Video";
-import "../css/VideoBar.css";
 
 const VideoBar = ({peersStream,userId}) => {
   return (

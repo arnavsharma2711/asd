@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "../css/Video.css";
 
 const Video = ({ media, width, height, muted, children }) => {
   let videoRef = React.createRef();
@@ -9,7 +8,7 @@ const Video = ({ media, width, height, muted, children }) => {
   }, [media]);
 
   return ( 
-      <video className="inline-block m-2"
+      <video className="inline-block m-2 border-2 rounded-lg object-cover"
       height={height}
       width={width}
       muted={muted}

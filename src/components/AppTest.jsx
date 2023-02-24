@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "./Header";
 import VideoBar from "./VideoBar";
 import Editor from "./Editor";
-import Footer from "./Footer";
 import io from "socket.io-client";
 import Peer from "peerjs";
 import axios from "axios";
@@ -117,25 +116,30 @@ const changeCodeOnMode =()=>{
     setInputOnModeChange(
   `#include <iostream>
 using namespace std;
-int main() {
-  cout<<"Hello World!";
-  // your code goes here
+
+int main()
+{
+  cout<<"Welcome to Code With Companion";
+
   return 0;
 }`);
     
     
   }else if(mode2==="java"){
-setInputOnModeChange(`public class Main {
-  public static void main(String args[]) {
-      System.out.println("Hello World!");
-  }
+setInputOnModeChange(`public class Main
+{
+  public static void main(String args[])
+  {
+      System.out.println("Welcome to Code With Companion");
+  }   
 }`)
   }else if(mode2==="python" || mode2==="python3"){
-setInputOnModeChange(`print("Hello World!")`)
+setInputOnModeChange(`print("Welcome to Code With Companion")`)
   }else if(mode2==="c"){
 setInputOnModeChange(`#include <stdio.h>
-int main() {
-    printf("Hello World!");
+int main()
+{
+    printf("Welcome to Code With Companion");
 }
 `)
   }

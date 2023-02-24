@@ -1,21 +1,21 @@
-import React, { Component, useState } from "react";
+import React, {useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars,faCopy,faVideoCamera,faVideoSlash,faMicrophoneLines,faMicrophoneLinesSlash,faClose } from "@fortawesome/free-solid-svg-icons";
 
 
-function Header({ onVideoToggle, onAudioToggle, userId ,showBoard,setShowBoard,showEditor,setshowEditor,onChangeBoard}) {
+function Header({ onVideoToggle, onAudioToggle, userId ,showBoard,setShowBoard,setshowEditor,onChangeBoard}) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [video, setVideo] = useState(false);
-  const [audio, setAudio] = useState(false);
+  const [video, setVideo] = useState(true);
+  const [audio, setAudio] = useState(true);
   const [showNotification, setShowNotification] = useState(false);
 
   function handleClick() {
     navigator.clipboard.writeText(window.location.href);
     setShowNotification(!showNotification);
-    const timer = setTimeout(() => {
+    setTimeout(() => {
         setShowNotification(false);
-      }, 1000);
+      }, 2000);
   }
   
   function toggleMenu() {

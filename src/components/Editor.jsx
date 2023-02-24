@@ -1,4 +1,3 @@
-// import React, { Component } from "react";
 import React, { useState } from "react";
 import ConfigBar from "./ConfigBar";
 import AceEditor from "react-ace";
@@ -26,7 +25,7 @@ import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/theme-ambiance";
 import "ace-builds/src-noconflict/theme-solarized_light";
 
-import "../css/Editor.css";
+//import "../css/Editor.css";
 import { save } from "save-file";
 import { Input } from "semantic-ui-react";
 const languages = Object.keys(languageToEditorMode);
@@ -89,7 +88,6 @@ const Editor = (props) => {
       setFontSize(parseInt(data.value));
     } else if (data.placeholder === "Language") {
       props.onChangeMode(data.value);
-      console.log(data.value);
       setModeForFile(data.value);
     }
   };
@@ -113,7 +111,7 @@ const Editor = (props) => {
         minSize={100}
         maxSize={window.innerWidth - 50}
         defaultSize={window.innerWidth * 0.5}
-         style={{ position: "static" }}
+        style={{ position: "static" }}
         >
         <div cla>
           <div className="bg-zinc-700 p-1">

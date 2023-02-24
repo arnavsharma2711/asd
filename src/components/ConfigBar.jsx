@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
 import { save } from 'save-file'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaptopCode, faSave } from "@fortawesome/free-solid-svg-icons";
 
 const ConfigBar = (props) => {
   useEffect(() => {
@@ -21,6 +23,7 @@ const ConfigBar = (props) => {
   }
   return (
     <div className="bg-purple-200 flex justify-between p-2 ">
+      
       <Dropdown
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         placeholder="Theme"
@@ -28,29 +31,37 @@ const ConfigBar = (props) => {
         options={props.themes}
         onChange={(e, data) => props.handleOnChange(e, data)}
         defaultValue={props.themes[8].value}
+        
       />
       <Dropdown
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         placeholder="Language"
+        search
         selection
         options={props.languages}
         onChange={(e, data) => props.handleOnChange(e, data)}
         value={props.mode}
+        style={{ minWidth: "7em" }}
       />
       <Dropdown
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         placeholder="Font Size"
+        search
         selection
         options={props.fontSizes}
         onChange={(e, data) => props.handleOnChange(e, data)}
         defaultValue={props.fontSizes[4].value}
+        style={{ minWidth: "5em" }}
+
       />
 
-   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" onClick={()=>props.handleDownloadCode()}>
-        Save
+   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded mr-2" onClick={()=>props.handleDownloadCode()}>
+        Save 
+      <FontAwesomeIcon className="ml-2" icon={faSave} />
       </button>
-      <button className="bg-zinc-700 bg-green-700 text-white font-bold px-4 rounded ml-auto" onClick={() => props.handleRunClick()}>
-        <div dangerouslySetInnerHTML={{ __html: props.status }} />
+      <button className="bg-green-700 text-white font-bold px-4 rounded ml-auto" onClick={() => props.handleRunClick()}>
+        <div className="inline" dangerouslySetInnerHTML={{ __html: props.status }} />
+        <FontAwesomeIcon className="ml-2" icon={faLaptopCode} />
       </button>
     </div>
   );
