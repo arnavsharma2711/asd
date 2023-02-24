@@ -164,16 +164,18 @@ class Board extends React.Component
     render() {
 
         return (
-            <div className="container">
-                <div className="tools-section">
-                    <div className="color-picker-container">
-                        Select Brush Color : &nbsp; 
-                        <input type="color" value={this.state.color} onChange={this.changeColor.bind(this)}/>
+            
+            <div className="m-2">
+                <div class="flex justify-center items-center bg-zinc-300">
+                    <div className="inline">
+                        Select Brush Color : 
                     </div>
-
-                    <div className="brushsize-container">
-                        Select Brush Size : &nbsp; 
-                        <select value={this.state.size} onChange={this.changeSize.bind(this)}>
+                    <div className="mr-2">
+                    <input type="color" value={this.state.color} onChange={this.changeColor.bind(this)} id="primary_color" class="rounded-2xl m-2 h-10 w-10 border-none outline-none appearance-none"/>
+                    </div>
+                    <div className="inline">
+                        Select Brush Size :
+                        <select className="bg-zinc-200 rounded-2xl text-center m-2 h-10 w-10 appearance-none" value={this.state.size} onChange={this.changeSize.bind(this)}>
                             <option> 5 </option>
                             <option> 10 </option>
                             <option> 15 </option>
@@ -182,11 +184,10 @@ class Board extends React.Component
                             <option> 30 </option>
                         </select>
                     </div>
-
                 </div>
 
-                <div className="board-container col-md-10 mx-auto mt-4 canvas-box">
-                    <Board2 color={this.state.color} size={this.state.size} socket={this.props.socket}></Board2>
+                <div className="h-screen w-90 bg-white">
+                    <Board2 color={this.state.color} size={this.state.size} socket={this.props.socket}/>
                 </div>
             </div>
         )

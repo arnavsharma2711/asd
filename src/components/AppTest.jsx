@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import VideoBar from "./VideoBar";
 import Editor from "./Editor";
+import Footer from "./Footer";
 import io from "socket.io-client";
 import Peer from "peerjs";
 import axios from "axios";
@@ -116,15 +117,10 @@ const changeCodeOnMode =()=>{
     setInputOnModeChange(
   `#include <iostream>
 using namespace std;
-
-int main()
-{
-    int num;
-    cin>>num;
-    cout<<num;
-    //Write your code here
-    
-    return 0;
+int main() {
+  cout<<"Hello World!";
+  // your code goes here
+  return 0;
 }`);
     
     
@@ -233,7 +229,7 @@ const handleSaveCode= async()=>{
           stream.getAudioTracks()[0].enabled = false;
         }
         const peers = state.peers;
-        const peers2 = peerStream2
+        const peers2=peerStream2
         peers.forEach((peer) => {
           if (peer.userId === userId) {
             peer.stream = stream;
@@ -293,15 +289,8 @@ const handleSaveCode= async()=>{
         });
       }
      const  handleChangeOutput=(newOutput)=> {
-      let asd = "Hello World!"
-      if(asd.toString() === newOutput.toString())
-        alert("Test Case Pass")
-      else
-      alert("Test Case Failed")
-      console.log("output changed");
-
-     // console.log(newOutput == asd)
-      
+      console.log("output changed")
+      console.log(newOutput)
         setState({ output: newOutput });
         socket.emit("output change", {
           newOutput: newOutput,
@@ -443,4 +432,3 @@ const handleSaveCode= async()=>{
 
 
 export default AppTest;
-

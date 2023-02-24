@@ -28,6 +28,7 @@ import "ace-builds/src-noconflict/theme-solarized_light";
 
 import "../css/Editor.css";
 import { save } from "save-file";
+import { Input } from "semantic-ui-react";
 const languages = Object.keys(languageToEditorMode);
 const fontSizes = [
   "8",
@@ -106,13 +107,13 @@ const Editor = (props) => {
         handleRunClick={() => props.handleRunClick()}
         handleDownloadCode={() => props.handleDownload()}
       />
-      <div className="">
-
+      <div className="flex">
       <SplitPane
         split="vertical"
         minSize={100}
         maxSize={window.innerWidth - 50}
         defaultSize={window.innerWidth * 0.5}
+         style={{ position: "static" }}
         >
         <div cla>
           <div className="bg-zinc-700 p-1">
@@ -125,7 +126,7 @@ const Editor = (props) => {
             value={props.code}
             onChange={(data) => props.onChangeCode(data)}
             width={"100vw"}
-            height={"84.5vh"}
+            height={"54.8vh"}
             showGutter={true}
             useWorker={false}
             editorProps={{ $blockScrolling: false }}
@@ -157,27 +158,7 @@ const Editor = (props) => {
               }}
               />
           </div>
-          <div>
-          <div className="bg-zinc-700 p-1">
-            <div className="text-white font-mono font-semibold">EXPECTED OUTPUT</div>
-          </div>
-            <AceEditor
-              mode={"text"}
-              theme={theme2}
-              fontSize={fontSize}
-              value={props.expected}
-              onChange={(data) => props.onChangeExpected(data)}
-              width={"100vw"}
-              height={"25vh"}
-              showGutter={true}
-              useWorker={false}
-              editorProps={{ $blockScrolling: false }}
-              setOptions={{
-                enableLiveAutocompletion: true,
-                enableSnippets: true,
-              }}
-              />
-          </div>
+          
           <div>
           <div className="bg-zinc-700 p-1">
             <div className="text-white font-mono font-semibold">CODE OUTPUT</div>
@@ -204,7 +185,7 @@ const Editor = (props) => {
           </div>
         </div>
       </SplitPane>
-              </div>
+          </div>
     </React.Fragment>
   );
 };
