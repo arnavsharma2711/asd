@@ -60,8 +60,6 @@ var lang;
 var font;
 var theme;
 
-
-
 const Editor = (props) => {
   const [theme2, setTheme] = useState("dracula");
   const [fontSize, setFontSize] = useState(16);
@@ -106,84 +104,89 @@ const Editor = (props) => {
         handleDownloadCode={() => props.handleDownload()}
       />
       <div className="flex">
-      <SplitPane
-        split="vertical"
-        minSize={100}
-        maxSize={window.innerWidth - 50}
-        defaultSize={window.innerWidth * 0.5}
-        style={{ position: "static" }}
+        <SplitPane
+          split="vertical"
+          minSize={100}
+          maxSize={window.innerWidth - 50}
+          defaultSize={window.innerWidth * 0.5}
+          style={{ position: "static" }}
         >
-        <div cla>
-          <div className="bg-zinc-700 p-1">
-            <div className="text-white font-mono font-semibold">CODE HERE</div>
-          </div>
-          <AceEditor
-            mode={props.mode}
-            theme={theme2}
-            fontSize={fontSize}
-            value={props.code}
-            onChange={(data) => props.onChangeCode(data)}
-            width={"100vw"}
-            height={"54.8vh"}
-            showGutter={true}
-            useWorker={false}
-            editorProps={{ $blockScrolling: false }}
-            setOptions={{
-              enableLiveAutocompletion: true,
-              enableSnippets: true,
-            }}
+          <div cla>
+            <div className="bg-zinc-700 p-1">
+              <div className="text-white font-mono font-semibold">
+                CODE HERE
+              </div>
+            </div>
+            <AceEditor
+              mode={props.mode}
+              theme={theme2}
+              fontSize={fontSize}
+              value={props.code}
+              onChange={(data) => props.onChangeCode(data)}
+              width={"100vw"}
+              height={"54.8vh"}
+              showGutter={true}
+              useWorker={false}
+              editorProps={{ $blockScrolling: false }}
+              setOptions={{
+                enableLiveAutocompletion: true,
+                enableSnippets: true,
+              }}
             />
-        </div>
-        <div className="border-l-2">
-          <div>
-          <div className="bg-zinc-700 p-1">
-            <div className="text-white font-mono font-semibold">USER INPUT</div>
           </div>
-            <AceEditor
-              mode={"text"}
-              theme={theme2}
-              fontSize={fontSize}
-              value={props.input}
-              onChange={(data) => props.onChangeInput(data)}
-              width={"100vw"}
-              height={"25vh"}
-              showGutter={true}
-              useWorker={false}
-              editorProps={{ $blockScrolling: false }}
-              setOptions={{
-                enableLiveAutocompletion: true,
-                enableSnippets: true,
-              }}
+          <div className="border-l-2">
+            <div>
+              <div className="bg-zinc-700 p-1">
+                <div className="text-white font-mono font-semibold">
+                  USER INPUT
+                </div>
+              </div>
+              <AceEditor
+                mode={"text"}
+                theme={theme2}
+                fontSize={fontSize}
+                value={props.input}
+                onChange={(data) => props.onChangeInput(data)}
+                width={"100vw"}
+                height={"25vh"}
+                showGutter={true}
+                useWorker={false}
+                editorProps={{ $blockScrolling: false }}
+                setOptions={{
+                  enableLiveAutocompletion: true,
+                  enableSnippets: true,
+                }}
               />
-          </div>
-          
-          <div>
-          <div className="bg-zinc-700 p-1">
-            <div className="text-white font-mono font-semibold">CODE OUTPUT</div>
-          </div>
+            </div>
 
-            <AceEditor
-              mode={"text"}
-              theme={theme2}
-              fontSize={fontSize}
-              value={props.output}
-              onChange={(data) => props.onChangeOutput(data)}
-              width={"100vw"}
-              height={"25vh"}
-              readOnly={true}
-              showGutter={true}
-              useWorker={false}
-              editorProps={{ $blockScrolling: false }}
-              setOptions={{
-                enableLiveAutocompletion: true,
-                enableSnippets: true,
-              }}
+            <div>
+              <div className="bg-zinc-700 p-1">
+                <div className="text-white font-mono font-semibold">
+                  CODE OUTPUT
+                </div>
+              </div>
+
+              <AceEditor
+                mode={"text"}
+                theme={theme2}
+                fontSize={fontSize}
+                value={props.output}
+                onChange={(data) => props.onChangeOutput(data)}
+                width={"100vw"}
+                height={"25vh"}
+                readOnly={true}
+                showGutter={true}
+                useWorker={false}
+                editorProps={{ $blockScrolling: false }}
+                setOptions={{
+                  enableLiveAutocompletion: true,
+                  enableSnippets: true,
+                }}
               />
-            
+            </div>
           </div>
-        </div>
-      </SplitPane>
-          </div>
+        </SplitPane>
+      </div>
     </React.Fragment>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import AppTest from "./components/AppTest";
-import {HashRouter as Router,Route,useParams,Redirect,} from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  useParams,
+  Redirect,
+} from "react-router-dom";
 const { v4: uuidV4 } = require("uuid");
 ReactDOM.render(
   <Router>

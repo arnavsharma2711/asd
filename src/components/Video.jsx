@@ -7,8 +7,9 @@ const Video = ({ media, width, height, muted, children }) => {
     videoRef.current.srcObject = media;
   }, [media]);
 
-  return ( 
-      <video className="inline-block m-2 border-2 rounded-lg object-cover"
+  return (
+    <video
+      className="inline-block m-2 border-2 rounded-lg object-cover"
       height={height}
       width={width}
       muted={muted}
@@ -17,7 +18,6 @@ const Video = ({ media, width, height, muted, children }) => {
     >
       {children}
     </video>
-   
   );
 };
 
