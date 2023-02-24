@@ -2,16 +2,11 @@ import Video from "./Video";
 import "../css/VideoBar.css";
 
 const VideoBar = ({peersStream,userId}) => {
-  console.log("From VideoBar")
-  console.log(peersStream)
-  console.log("2")
-  console.log(userId)
- 
   return (
-    <div className="scrollmenu">
+    <div className="bg-neutral-800 overflow-auto whitespace-nowrap  p-1">
 
       { peersStream.map((peer) => {
-        return ( peer.userId ===undefined? <div>User Left</div>:        
+        return ( peer.userId ===undefined? <div></div>:        
              <Video
             key={peer.userId}
             media={peer.stream}

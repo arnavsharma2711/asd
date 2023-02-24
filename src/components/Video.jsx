@@ -9,7 +9,7 @@ const Video = ({ media, width, height, muted, children }) => {
   }, [media]);
 
   return ( 
-      <video
+      <video className="inline-block m-2"
       height={height}
       width={width}
       muted={muted}

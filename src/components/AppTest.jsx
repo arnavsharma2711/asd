@@ -116,10 +116,15 @@ const changeCodeOnMode =()=>{
     setInputOnModeChange(
   `#include <iostream>
 using namespace std;
-int main() {
-  cout<<"Hello World!";
-  // your code goes here
-  return 0;
+
+int main()
+{
+    int num;
+    cin>>num;
+    cout<<num;
+    //Write your code here
+    
+    return 0;
 }`);
     
     

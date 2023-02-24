@@ -165,7 +165,7 @@ class Board extends React.Component
 
         return (
             <div className="container">
-                <div class="tools-section">
+                <div className="tools-section">
                     <div className="color-picker-container">
                         Select Brush Color : &nbsp; 
                         <input type="color" value={this.state.color} onChange={this.changeColor.bind(this)}/>
@@ -185,7 +185,7 @@ class Board extends React.Component
 
                 </div>
 
-                <div class="board-container col-md-10 mx-auto mt-4 canvas-box">
+                <div className="board-container col-md-10 mx-auto mt-4 canvas-box">
                     <Board2 color={this.state.color} size={this.state.size} socket={this.props.socket}></Board2>
                 </div>
             </div>

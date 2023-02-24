@@ -106,16 +106,17 @@ const Editor = (props) => {
         handleRunClick={() => props.handleRunClick()}
         handleDownloadCode={() => props.handleDownload()}
       />
+      <div className="">
+
       <SplitPane
         split="vertical"
         minSize={100}
         maxSize={window.innerWidth - 50}
         defaultSize={window.innerWidth * 0.5}
-        style={{ height: "65vh" }}
-      >
-        <div>
-          <div className="head">
-            <div className="text">CODE HERE</div>
+        >
+        <div cla>
+          <div className="bg-zinc-700 p-1">
+            <div className="text-white font-mono font-semibold">CODE HERE</div>
           </div>
           <AceEditor
             mode={props.mode}
@@ -124,7 +125,7 @@ const Editor = (props) => {
             value={props.code}
             onChange={(data) => props.onChangeCode(data)}
             width={"100vw"}
-            height={"61.4vh"}
+            height={"84.5vh"}
             showGutter={true}
             useWorker={false}
             editorProps={{ $blockScrolling: false }}
@@ -132,13 +133,13 @@ const Editor = (props) => {
               enableLiveAutocompletion: true,
               enableSnippets: true,
             }}
-          />
+            />
         </div>
-        <div>
+        <div className="border-l-2">
           <div>
-            <div className="head">
-              <div className="text">INPUT</div>
-            </div>
+          <div className="bg-zinc-700 p-1">
+            <div className="text-white font-mono font-semibold">USER INPUT</div>
+          </div>
             <AceEditor
               mode={"text"}
               theme={theme2}
@@ -146,7 +147,7 @@ const Editor = (props) => {
               value={props.input}
               onChange={(data) => props.onChangeInput(data)}
               width={"100vw"}
-              height={"28vh"}
+              height={"25vh"}
               showGutter={true}
               useWorker={false}
               editorProps={{ $blockScrolling: false }}
@@ -154,12 +155,33 @@ const Editor = (props) => {
                 enableLiveAutocompletion: true,
                 enableSnippets: true,
               }}
-            />
+              />
           </div>
           <div>
-            <div className="head">
-              <div className="text">OUTPUT</div>
-            </div>
+          <div className="bg-zinc-700 p-1">
+            <div className="text-white font-mono font-semibold">EXPECTED OUTPUT</div>
+          </div>
+            <AceEditor
+              mode={"text"}
+              theme={theme2}
+              fontSize={fontSize}
+              value={props.expected}
+              onChange={(data) => props.onChangeExpected(data)}
+              width={"100vw"}
+              height={"25vh"}
+              showGutter={true}
+              useWorker={false}
+              editorProps={{ $blockScrolling: false }}
+              setOptions={{
+                enableLiveAutocompletion: true,
+                enableSnippets: true,
+              }}
+              />
+          </div>
+          <div>
+          <div className="bg-zinc-700 p-1">
+            <div className="text-white font-mono font-semibold">CODE OUTPUT</div>
+          </div>
 
             <AceEditor
               mode={"text"}
@@ -168,7 +190,7 @@ const Editor = (props) => {
               value={props.output}
               onChange={(data) => props.onChangeOutput(data)}
               width={"100vw"}
-              height={"32vh"}
+              height={"25vh"}
               readOnly={true}
               showGutter={true}
               useWorker={false}
@@ -177,11 +199,12 @@ const Editor = (props) => {
                 enableLiveAutocompletion: true,
                 enableSnippets: true,
               }}
-            />
+              />
             
           </div>
         </div>
       </SplitPane>
+              </div>
     </React.Fragment>
   );
 };

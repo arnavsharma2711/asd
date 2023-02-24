@@ -1,19 +1,11 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Dropdown } from "semantic-ui-react";
-import "../css/ConfigBar.css";
 import { save } from 'save-file'
 
 const ConfigBar = (props) => {
- 
   useEffect(() => {
-    console.log("From ConfigBar")
-  
-  //  handleSaveCode();
   }, [props.mode,props.code])
   const handleSaveCode= async()=>{
-    console.log(props.code)
-    console.log(props.modeForile)
-    //  await save(props.code,  `code.`+`${props.modeForile}` )}
     if(props.modeForile==="cpp"){
       await save(props.code,  "code.cpp" )}
     else if(props.modeForile==="java"){
@@ -28,9 +20,9 @@ const ConfigBar = (props) => {
     await save(props.code,  "code.txt" )
   }
   return (
-    <div className="config-bar">
+    <div className="bg-purple-200 flex justify-between p-2 ">
       <Dropdown
-        className="dropdown"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         placeholder="Theme"
         selection
         options={props.themes}
@@ -38,7 +30,7 @@ const ConfigBar = (props) => {
         defaultValue={props.themes[8].value}
       />
       <Dropdown
-        className="dropdown"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         placeholder="Language"
         selection
         options={props.languages}
@@ -46,19 +38,19 @@ const ConfigBar = (props) => {
         value={props.mode}
       />
       <Dropdown
-        className="dropdown"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
         placeholder="Font Size"
         selection
         options={props.fontSizes}
         onChange={(e, data) => props.handleOnChange(e, data)}
         defaultValue={props.fontSizes[4].value}
       />
-      <button className="run" onClick={() => props.handleRunClick()}>
-        <div dangerouslySetInnerHTML={{ __html: props.status }} />
-      </button>
 
-   <button className="btn btn-primary save" onClick={()=>props.handleDownloadCode()}>
+   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" onClick={()=>props.handleDownloadCode()}>
         Save
+      </button>
+      <button className="bg-zinc-700 bg-green-700 text-white font-bold px-4 rounded ml-auto" onClick={() => props.handleRunClick()}>
+        <div dangerouslySetInnerHTML={{ __html: props.status }} />
       </button>
     </div>
   );
